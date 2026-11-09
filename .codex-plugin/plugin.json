@@ -1,0 +1,6 @@
+{
+  "name": "phil-contribution-skills",
+  "version": "0.1.0",
+  "description": "Agent skills for contributing to the open phil/* and tilttek/* PHP packages: code rules, documentation rules, gamification guardrails, and the phil-dev command that checks each one.",
+  "skills": "./skills/"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "phil-contribution-skills",
+  "description": "Agent skills for contributing to the open phil/* and tilttek/* PHP packages: code rules, documentation rules, gamification guardrails, and the phil-dev command that checks each one.",
+  "owner": {
+    "name": "Parler Haut Interagir Librement"
+  },
+  "plugins": [
+    {
+      "name": "phil-contribution-skills",
+      "description": "Agent skills for contributing to the open phil/* and tilttek/* PHP packages: code rules, documentation rules, gamification guardrails, and the phil-dev command that checks each one.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Parler Haut Interagir Librement",
+        "url": "https://ph-il.ca"
+      },
+      "source": "./"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "phil-contribution-skills",
+  "version": "0.1.0",
+  "description": "Agent skills for contributing to the open phil/* and tilttek/* PHP packages: code rules, documentation rules, gamification guardrails, and the phil-dev command that checks each one.",
+  "author": {
+    "name": "Parler Haut Interagir Librement",
+    "url": "https://ph-il.ca"
+  },
+  "homepage": "https://ph-il.ca",
+  "repository": "https://github.com/parler-haut-interagir-librement/phil-contribution-skills",
+  "license": "MIT",
+  "keywords": [
+    "phil",
+    "tilttek",
+    "symfony",
+    "php",
+    "contributing",
+    "quality-gates",
+    "gamification"
+  ]
+}
