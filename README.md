@@ -14,7 +14,7 @@ stay the executable truth.
 | Skill | Use it when |
 |---|---|
 | [`phil-code-contribution`](skills/phil-code-contribution/SKILL.md) | Writing or reviewing the PHP, Twig or Stimulus code of a `phil/*` library or bundle. |
-| [`phil-docs-contribution`](skills/phil-docs-contribution/SKILL.md) | Writing or reviewing a README, `doc/`, a CHANGELOG or docblocks in a `phil/*` or `tilttek/*` package. |
+| [`phil-docs-contribution`](skills/phil-docs-contribution/SKILL.md) | Writing or reviewing a README, `doc/`, its French mirror, a CHANGELOG or docblocks in a `phil/*` or `tilttek/*` package. |
 | [`tilttek-contribution`](skills/tilttek-contribution/SKILL.md) | Working on a `tilttek/*` package, or deciding whether a package belongs to Tilttek or PHIL. It adds the rules of games and gamification to the two others. |
 
 ## Installation

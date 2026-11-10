@@ -127,6 +127,7 @@ composer gates
 composer packages
 composer test:next
 composer docs
+composer docs:translations
 ```
 
 [tools]: https://github.com/parler-haut-interagir-librement/dev-tools

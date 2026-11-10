@@ -1,6 +1,6 @@
 ---
 name: phil-docs-contribution
-description: Rules for the documentation of a phil/* or tilttek/* package - README, doc/, CHANGELOG, composer.json description and docblocks - and the phil-dev command that checks each one. Use when writing, changing or reviewing any of those files in such a package. Not for PHP behaviour (phil-code-contribution).
+description: Rules for the documentation of a phil/* or tilttek/* package - README, doc/, its French mirror README.fr.md and doc/fr/, CHANGELOG, composer.json description and docblocks - and the phil-dev command that checks each one. Use when writing, changing or reviewing any of those files in such a package. Not for PHP behaviour (phil-code-contribution).
 ---
 
 # Contributing documentation to a `phil/*` or `tilttek/*` package
@@ -10,8 +10,9 @@ of the monorepo. *Project rule* marks a rule no document states yet and no gate 
 
 ## Language and voice
 
-1. **Write in English**: the README, `doc/`, the `composer.json` description, docblocks and exception messages. The
-   packages are published for readers everywhere. Source: [skeleton][wording].
+1. **Write in English first**: the README, `doc/`, the `composer.json` description, docblocks and exception messages.
+   The packages are published for readers everywhere; the French is a mirror of the README and `doc/` (see below).
+   Source: [skeleton][wording].
 2. **Say "the application" for whatever installs the package.** Never name a site, customer or application, even as an
    example value. Source: [skeleton][wording]. Check: `composer docs`.
 3. **Leave planning vocabulary out**: no phase, batch, milestone or link to a project plan. *Project rule.*
@@ -38,20 +39,47 @@ of the monorepo. *Project rule* marks a rule no document states yet and no gate 
     `docs.words`. Source: [workflow][prose]. Check: `composer docs:lint`.
 14. **Keep `composer.json` normalized.** Source: [quality gates][normalize]. Fix: `composer deps:normalize:fix`.
 
+## The French mirror
+
+15. **Keep a French mirror of the README and of `doc/`**: `README.fr.md` beside `README.md`, and `doc/fr/<name>.md` for
+    each `doc/<name>.md`, same names and same tree. A document without its mirror, or a mirror without its document,
+    fails. English stays the source, and only the README and `doc/` are translated: comments, docblocks, the
+    `composer.json` description, the CHANGELOG and the community files stay in English.
+    Source: [the French mirror][mirror]. Check: `composer docs:translations`.
+16. **Update the French in the commit that changes the English**, then record it:
+    `vendor/bin/phil-dev stamp-translations <package> --file=<document>`. The stamp, on the first line of the mirror, is
+    a fingerprint of the English: without it, or when the English has changed since, the translation is reported as
+    late. Stamp only what you translated, and never write the stamp by hand. Source: [the stamp][stamp].
+    Check: `composer docs:translations`.
+17. **Keep the structure**: as many headings of each level as the English, and every fenced code block identical,
+    comments included. Translate the headings and the prose, never an identifier. Source: [the French mirror][mirror].
+    Check: `composer docs:translations`.
+18. **Follow [the glossary][glossary]**: its words, in neutral technical Québec French, and its tone: address the reader
+    as « vous », in simple sentences, with links to the matching `doc/fr/` files. *Project rule.* Check:
+    `composer docs:lint` for the spelling.
+19. **Make a translated package blocking**: `'docs' => ['translations' => 'blocking']` in its `phil-dev.php`, which
+    `phil-dev new` writes. Only a package still to translate is `advisory`. Narrow the gate to your packages with
+    `PHIL_DEV_PACKAGES`, and read an advisory package's findings with `-v`. Source: [the catch-up][catchup].
+
 ## CHANGELOG
 
-15. **Keep one "Added" section until the package is public.** A change rewrites the entry it touches; never add
+20. **Keep one "Added" section until the package is public.** A change rewrites the entry it touches; never add
     "Changed" or "Fixed". Source: [the CHANGELOG][changelog]. Check: `composer docs`.
-16. **Order entries for a reader**: model and core, ports and services, persistence, integrations (Twig, Stimulus,
+21. **Order entries for a reader**: model and core, ports and services, persistence, integrations (Twig, Stimulus,
     commands, API), documentation, community files. Never by arrival. Source: [the CHANGELOG][changelog].
-17. **Use the usual sections once the package's `phil-dev.php` sets `'docs' => ['public' => true]`.** Source:
+22. **Use the usual sections once the package's `phil-dev.php` sets `'docs' => ['public' => true]`.** Source:
     [the CHANGELOG][changelog].
 
-Before you push: `composer docs`, then `composer docs:lint`. A code change also goes through `phil-code-contribution`.
+Before you push: `composer docs`, `composer docs:translations`, then `composer docs:lint`. A code change also goes
+through `phil-code-contribution`.
 
 [checks]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/skeleton.md#the-documentation-checks
 [skeleton]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/skeleton.md
 [wording]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/skeleton.md#the-wording
 [changelog]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/skeleton.md#the-changelog
 [prose]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/workflow.md#the-prose-of-the-documentation
+[mirror]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/quality-gates.md#the-french-mirror-of-the-documentation
+[stamp]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/quality-gates.md#how-a-late-translation-is-found
+[catchup]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/quality-gates.md#while-the-existing-packages-catch-up
+[glossary]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/fr-glossary.md
 [normalize]: https://github.com/parler-haut-interagir-librement/dev-tools/blob/main/doc/quality-gates.md#the-advisories-the-unused-packages-and-the-normalized-composerjson
